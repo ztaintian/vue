@@ -11,7 +11,7 @@
       <p v-if="show">hello</p>
     </transition>
     <input v-model.number="number" v-focus type="number" step="20">
-    <p>{{ animatedNumber }}</p>
+    <p id="p" @click="all">{{ animatedNumber }}</p>
   </div>
 </template>
 
@@ -29,11 +29,11 @@ export default {
       animatedNumber: 0
     }
   },
-  mounted () {
-    // console.log($)
-
-  },
+  mounted () {},
   methods: {
+    all: function () {
+      console.log($('#p').html('uuu'))
+    }
   },
   watch: {
     number: function (newValue, oldValue) {

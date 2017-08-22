@@ -4,10 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import 'animate.css'
+import $ from 'jquery'
 
 Vue.use(router)
 // Vue.use($)
-// console.log($)
+window.$ = $
 Vue.config.productionTip = false
 // 注册一个名为 v-focus 的全局自定义指令
 Vue.directive('focus', {
