@@ -12,19 +12,15 @@
     </transition>
     <input v-model.number="number" v-focus type="number" step="20">
     <p>{{ animatedNumber }}</p>
-    <anchored-heading></anchored-heading>  
-    <VmEditor @upload="getHtml"></VmEditor>
   </div>
 </template>
 
 <script>
 import TWEEN from '@tweenjs/tween.js'
-import VmEditor from 'vm-editor'
+// import $ from 'jquery'
 export default {
   name: 'hello',
-  components: {
-    VmEditor
-  },
+  components: {},
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
@@ -33,10 +29,15 @@ export default {
       animatedNumber: 0
     }
   },
+  mounted () {
+    // console.log($)
+
+  },
+  methods: {
+  },
   watch: {
     number: function (newValue, oldValue) {
       var vm = this
-      console.log(oldValue, newValue)
       function animate () {
         if (TWEEN.update()) {
           requestAnimationFrame(animate)
@@ -46,7 +47,6 @@ export default {
         .easing(TWEEN.Easing.Quadratic.Out)
         .to({ tweeningNumber: newValue }, 500)
         .onUpdate(function () {
-          console.log(this._object.tweeningNumber)
           vm.animatedNumber = this._object.tweeningNumber.toFixed(0)
         })
         .start()

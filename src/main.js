@@ -4,10 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import 'animate.css'
-import $ from 'jquery'
 
 Vue.use(router)
-Vue.use($)
+// Vue.use($)
+// console.log($)
 Vue.config.productionTip = false
 // 注册一个名为 v-focus 的全局自定义指令
 Vue.directive('focus', {
@@ -18,20 +18,6 @@ Vue.directive('focus', {
   }
 })
 
-Vue.component('anchored-heading', {
-  render: function (createElement) {
-    return createElement(
-      'h' + this.level,   // 标签名称
-      this.$slots.default // 由子节点构成的数组
-    )
-  },
-  props: {
-    level: {
-      type: Number,
-      required: true
-    }
-  }
-})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
