@@ -29,7 +29,24 @@ export default {
       animatedNumber: 0
     }
   },
-  mounted () {},
+  mounted () {
+    class Point {
+      add () {
+        return 1
+      }
+    }
+    class ColorPoint extends Point {}
+    let bb = new ColorPoint()
+    let aa = new Point()
+    console.log(Object.getPrototypeOf(ColorPoint) === Point )
+    console.log(bb.add())
+    console.log(aa.add())
+    let arr = [1,2,3]
+    let hh = (x,y,z) =>{
+      console.log(x,y,z)
+    }
+    hh(2,...arr)
+  },
   methods: {
     all: function () {
       console.log($('#p').html('uuu'))
