@@ -5,11 +5,14 @@ import App from './App'
 import router from './router'
 import 'animate.css'
 import $ from 'jquery'
-
+import axios from 'axios'
 Vue.use(router)
-// Vue.use($)
+Object.defineProperty(Vue.prototype,'axios',{value:axios})
+Vue.prototype.axios.interceptors.response.use(res=>res)
+Vue.prototype.axios.defaults.timeout = 1000
+
 // window.$ = $
-Object.defineProperty(Vue.prototype,'$',{value:$})
+// Object.defineProperty(Vue.prototype,'$',{value:$})
 Vue.config.productionTip = false
 // 注册一个名为 v-focus 的全局自定义指令
 Vue.directive('focus', {

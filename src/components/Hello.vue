@@ -17,7 +17,6 @@
 
 <script>
 import TWEEN from '@tweenjs/tween.js'
-// import $ from 'jquery'
 export default {
   name: 'hello',
   components: {},
@@ -30,6 +29,16 @@ export default {
     }
   },
   mounted () {
+    this.axios({
+      method: 'post',
+      url:'https://test.bldz.com/pay/bankAccount/getNetBankRecords',
+      data:{}
+    }).then(data =>{
+      console.log(data)
+    }).catch(err=>{
+      console.log(JSON.stringify(err))
+    })
+    // console.log($)
     class Point {
       add () {
         return 1
@@ -38,12 +47,12 @@ export default {
     class ColorPoint extends Point {}
     let bb = new ColorPoint()
     let aa = new Point()
-    console.log(Object.getPrototypeOf(ColorPoint) === Point )
-    console.log(bb.add())
-    console.log(aa.add())
+    // console.log(Object.getPrototypeOf(ColorPoint) === Point )
+    // console.log(bb.add())
+    // console.log(aa.add())
     let arr = [1,2,3]
     let hh = (x,y,z) =>{
-      console.log(x,y,z)
+      // console.log(x,y,z)
     }
     hh(2,...arr)
   },

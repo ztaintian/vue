@@ -16,6 +16,7 @@
   "dependencies": {
     "@tweenjs/tween.js": "^17.1.0",
     "animate.css": "^3.5.2",
+    "axios": "^0.16.2",
     "jquery": "^3.2.1",
     "vm-editor": "^0.1.0",
     "vue": "^2.3.3",
